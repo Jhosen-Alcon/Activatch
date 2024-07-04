@@ -25,6 +25,17 @@
 
 	<!-- custom font -->
 	<link rel="stylesheet" href="css/font-style.css" type="text/css">
+    <script>
+        // Función para reproducir o pausar la música de fondo
+        function toggleBackgroundMusic() {
+            var audio = document.getElementById('backgroundMusic');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 </head>
 
 <body id="homepage">
@@ -104,6 +115,14 @@
                 </div>
             </div>
         </header>
+        <audio id="backgroundMusic" loop autoplay>
+            <source src="audio/pruebamusica.mp3" type="audio/mpeg">
+            <!-- Asegúrate de proporcionar una fuente de respaldo para navegadores que no admiten MP3 -->
+            Your browser does not support the audio element.
+        </audio>
+        <div class="music-control">
+            <button onclick="toggleBackgroundMusic()">Toggle Music</button>
+        </div>
         <!-- header close -->
 
 <!--<!DOCTYPE html>
@@ -293,18 +312,37 @@
 								
 								<div class="spacer10"></div>
 								
-								<a href="lapaz.html" class="btn-custom font-weight-bold text-white sm-mb-30">LA PAZ</a>
-                                <a href="cochabamba.html" class="btn-custom font-weight-bold text-white sm-mb-30">COCHABAMBA</a>
+								<a href="lapaz.html" class="btn-custom font-weight-bold text-white sm-mb-30">RESUMEN</a>
+                                <!--<a href="cochabamba.html" class="btn-custom font-weight-bold text-white sm-mb-30">COCHABAMBA</a>-->
                                 <a href="cochabamba.html" class="btn-custom font-weight-bold text-white sm-mb-30">TECNIA</a>
                             </div>
-							
-							<div class="col-lg-6 mb-sm-30 text-center wow fadeInRight">
+                            <div class="col-lg-6 mb-sm-30 text-center wow fadeInRight">
+                                <div class="de-videos">
+                                    <iframe class="di-small wow fadeIn" data-wow-delay=".25s" src="https://www.youtube.com/embed/WtTvWNESIBc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 300px; height: 200px; margin-bottom: 20px;"></iframe>
+                                    <iframe class="di-small-2 wow fadeIn" data-wow-delay=".25s" src="https://www.youtube.com/embed/WtTvWNESIBc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 300px; height: 200px; margin-bottom: 20px;"></iframe>
+                                    <iframe class="img-fluid wow fadeInRight" data-wow-delay=".25s" src="https://www.youtube.com/embed/WtTvWNESIBc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 600px; height: 400px;"></iframe>
+                                </div>
+                            </div>
+                            
+							<!--<div class="col-lg-6 mb-sm-30 text-center wow fadeInRight">
+                                <div class="de-videos">
+                                    
+                                    <iframe class="di-small-2" data-wow-delay=".25s" src="https://www.youtube.com/embed/WtTvWNESIBc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                                    <iframe class="img-fluid wow fadeInRight" data-wow-delay=".25s" src="https://www.youtube.com/embed/WtTvWNESIBc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                                </div>
+                                </div>
+                            </div>-->
+                            
+                            
+                            
+                            
+							<!--<div class="col-lg-6 mb-sm-30 text-center wow fadeInRight">
                                 <div class="de-images">
 									<img class="di-small wow fadeIn" src="images/muypronto_cleanup.jpg" alt="">
 									<img class="di-small-2" src="images/muypronto_cleanup.jpg" alt="">
 									<img class="img-fluid wow fadeInRight" data-wow-delay=".25s" src="images/muypronto_cleanup.jpg" alt="">
 								</div>
-                            </div>
+                            </div>-->
 
                         </div>
                     </div>
@@ -355,7 +393,7 @@
 
                         <div class="spacer-single sm-hide"></div>
 
-                        <div class="col-lg-4 wow fadeIn" data-wow-delay=".75s">
+                        <!--<div class="col-lg-4 wow fadeIn" data-wow-delay=".75s">
                             <div class="box-number square">
                                 <i class="bg-color hover-color-2 fa fa-building text-light"></i>
                                 <div class="text">
@@ -363,9 +401,9 @@
                                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
-                        <div class="col-lg-4 wow fadeIn" data-wow-delay="1s">
+                        <!--<div class="col-lg-4 wow fadeIn" data-wow-delay="1s">
                             <div class="box-number square">
                                 <i class="bg-color hover-color-2  fa fa-users text-light"></i>
                                 <div class="text">
@@ -373,9 +411,9 @@
                                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
-                        <div class="col-lg-4 wow fadeIn" data-wow-delay="1.25s">
+                        <!--<div class="col-lg-4 wow fadeIn" data-wow-delay="1.25s">
                             <div class="box-number square">
                                 <i class="bg-color hover-color-2 fa fa-mortar-board text-light"></i>
                                 <div class="text">
@@ -383,7 +421,7 @@
                                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div>--->
 						
 
                     </div>
