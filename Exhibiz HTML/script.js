@@ -1,75 +1,63 @@
-// let's select all required tags or elements
-const mainVideo = document.querySelector('#main-Video');
-const musicList = document.querySelector('.music-list');
-const playlist = document.getElementById('playlist');
-const AllLessons = document.querySelector('.AllLessons');
-const videoTitle = document.querySelector('.title');
+// Seleccionar elementos necesarios
+const videoPlayer = document.querySelector("#main-Video");
+const playlist = document.querySelector(".playlist");
+const title = document.querySelector(".titlee");
+const searchInput = document.getElementById("searchInput");
 
+// Cargar videos en la lista de reproducción
+window.addEventListener("load", () => {
+    allVideos.forEach((video, index) => {
+        let li = document.createElement("li");
+        li.classList.add("list");
+        li.setAttribute("data-src", video.src);
 
-const ulTag = document.querySelector("ul");
-AllLessons.innerHTML = `${allVideos.length} Vídeos`
+        let span = document.createElement("span");
+        span.innerText = video.name;
+        li.appendChild(span);
 
+        playlist.appendChild(li);
 
-let musicIndex = 1;
-window.addEventListener('load',()=>{
-   loadMusic(musicIndex);
-   playingNow();
-})
-function playMusic(){
-   mainVideo.play();
-   playlist.classList.add('active')
-}
-function loadMusic(indexNumb){
-   mainVideo.src = `media/${allVideos[indexNumb - 1].src}.mp4`;
-   videoTitle.innerHTML = `${indexNumb}. ${allVideos[indexNumb - 1].name}`
-   
-}
+        li.addEventListener("click", () => {
+            loadVideo(video.src, video.name);
+        });
+    });
 
-for(let i = 0; i < allVideos.length; i++){
-   let liTag = `<li li-index="${i + 1}">
-      <div class="row">
-         <span>${i + 1}. ${allVideos[i].name}</span>
-      </div>
-      <video class="${allVideos[i].id}" src="media/${allVideos[i].src}.mp4" style="display: none;" title="${allVideos[i].name}"></video>
-      <span id="${allVideos[i].id}" class="duration"></span>
-   </li>`;
-   playlist.insertAdjacentHTML('beforeend',liTag); 
+    // Cargar el primer video por defecto
+    loadVideo(allVideos[0].src, allVideos[0].name);
+});
 
-   let liVideoDuration = ulTag.querySelector(`#${allVideos[i].id}`)
-   let liVideoTag = ulTag.querySelector(`.${allVideos[i].id}`);
-   
-
-   liVideoTag.addEventListener("loadeddata", ()=>{
-      let videoDuration = liVideoTag.duration;
-      let totalMin = Math.floor(videoDuration / 60);
-      let totalSec = Math.floor(videoDuration % 60);
-      // if totalSec is less then 10 then add 0 at the beginging
-      totalSec < 10 ? totalSec = "0"+ totalSec : totalSec
-      liVideoDuration.innerText = `${totalMin}:${totalSec}`;
-      // adding t duration attribe which we'll use below
-      liVideoDuration.setAttribute("t-duration", `${totalMin}:${totalSec}`);
-   })  
-}
-// let's work on play particular song on click
-const allLiTags = playlist.querySelectorAll('li');
-function playingNow(){
-   for(let j = 0; j<allVideos.length; j++){
-      if(allLiTags[j].classList.contains('playing')){
-         allLiTags[j].classList.remove("playing")
-      }
-      if(allLiTags[j].getAttribute('li-index')==musicIndex){
-         allLiTags[j].classList.add('playing')
-      }
-      // adding onclick attribute in all li tags
-      allLiTags[j].setAttribute("onclick", "clicked(this)")
-   }
+// Función para cargar video
+function loadVideo(src, name) {
+    let videoSrc;
+    if (src.includes("youtube")) {
+        videoSrc = src.replace("watch?v=", "embed/");
+    } else if (src.includes("tiktok")) {
+        videoSrc = `https://www.tiktok.com/embed/v2/${src.split('/').pop()}`;
+    } else {
+        videoSrc = src;
+    }
+    videoPlayer.src = videoSrc;
+    title.innerHTML = name;
 }
 
-function clicked(element){
-   // getting li index of particular clicked li tag
-   let getIndex = element.getAttribute("li-index");
-   musicIndex = getIndex;
-   loadMusic(musicIndex);
-   playMusic();
-   playingNow();
-}
+// Manejar búsqueda
+searchInput.addEventListener("input", function() {
+    const searchValue = searchInput.value.toLowerCase();
+    for (const li of playlist.children) {
+        const span = li.querySelector("span");
+        const spanText = span.textContent;
+        const spanTextLower = spanText.toLowerCase();
+        const startIndex = spanTextLower.indexOf(searchValue);
+        if (startIndex === -1) {
+            li.style.display = "none";
+        } else {
+            li.style.display = "";
+            span.innerHTML =
+                spanText.slice(0, startIndex) +
+                "<mark>" +
+                spanText.slice(startIndex, startIndex + searchValue.length) +
+                "</mark>" +
+                spanText.slice(startIndex + searchValue.length);
+        }
+    }
+});
