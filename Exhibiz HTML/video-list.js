@@ -1,12 +1,12 @@
 let allVideos = [
    {
        name: "Video 1",
-       src: "https://www.youtube.com/watch?v=abcdefghijk",
+       src: "https://www.youtube.com/embed/WtTvWNESIBc",
        id: "vid_1"
    },
    {
        name: "Video 2",
-       src: "https://www.tiktok.com/@username/video/1234567890123456789",
+       src: "https://vm.tiktok.com/embed/ZMraUQkQF/",
        id: "vid_2"
    },
    // Añadir más videos según sea necesario

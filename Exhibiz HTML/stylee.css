@@ -1,35 +1,28 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body::-webkit-scrollbar
-{
+body::-webkit-scrollbar {
    width: 10px;
 }
-body::-webkit-scrollbar-thumb
-{
+body::-webkit-scrollbar-thumb {
    height: 80px;
    background: #375666;
    border: 8px solid transparent;
    border-radius: 12px;
 }
-body::-webkit-scrollbar-thumb:active
-{
+body::-webkit-scrollbar-thumb:active {
     background: #003349;
 }
-body
-{
+body {
     font-family: sans-serif;
     background: #002333;
 }
-li
-{
+li {
     list-style: none;
 }
-section
-{
+section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,9 +30,7 @@ section
     padding: 2.5%;
     min-height: 100vh;
 }
-
-.titlee
-{
+.titlee {
     font-size: 20px;
     font-weight: 600;
     color: #dcdee1;
@@ -47,26 +38,30 @@ section
     width: 100%;
     margin-bottom: 10px;
 }
-.containerr
-{
+.containerr {
     position: relative;
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: 2fr 1fr;
     overflow: hidden;
-    /* border: 2px solid red; */
 }
-.containerr #main-Video
-{
+.video-container {
     position: relative;
     width: 100%;
-    height: auto;
+    padding-top: 100%; /* Ratio 1:1 para hacerlo cuadrado */
     overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    border: none;
     outline: none;
 }
-
-#searchInput{
+#searchInput {
     width: 100%;
     padding: 10px;
     background: transparent;
@@ -76,28 +71,23 @@ section
     border-radius: 5px;
     margin-bottom: 10px;
 }
-.playlistBx
-{
+.playlistBx {
     position: relative;
     height: 100%;
     margin: 0 10px 0 10px;
-    /* border: 2px solid green; */
 }
-.playlist
-{
+.playlist {
     position: absolute;
     width: 100%;
     height: calc(100% - 40px);
     overflow-y: scroll;
     border-top: 1px solid #dcdee1;
-    padding-bottom: 42px; /* I forget to add this while I was recording this video please add this line if you don't add this property then the last li in the playlist will not show  */
+    padding-bottom: 42px;
 }
-.playlist::-webkit-scrollbar
-{
+.playlist::-webkit-scrollbar {
    width: 0px;
 }
-.playlistBx .roww .AllLessons
-{
+.playlistBx .roww .AllLessons {
    display: block;
    text-align: left;
    color: #dcdee1;
@@ -106,8 +96,7 @@ section
    margin-left: 20px;
    line-height: 40px;
 }
-.playlist li
-{
+.playlist li {
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -118,12 +107,10 @@ section
    padding: 15px 20px;
    border-radius: 5px;
 }
-.playlist li:hover
-{
+.playlist li:hover {
     border: 0.5px solid #375666;
 }
-.playlist li .roww span
-{
+.playlist li .roww span {
     font-size: 15px;
     font-weight: 400;
     color: #dcdee1;
@@ -131,64 +118,54 @@ section
     display: inline-block;
     text-align: left;
 }
-.playlist li .roww span::before
-{
+.playlist li .roww span::before {
     content: '\f01d';
     font-family: FontAwesome;
     color: #dcdee1;
     margin-right: 15px;
     font-size: 20px;
 }
-ul li.playing .rowww span::before
-{
+ul li.playing .rowww span::before {
     content: '\f28c';
     font-family: FontAwesome;
     color: #fff;
     margin-right: 15px;
     font-size: 20px;
 }
-.playlist li.playing .roww span
-{
+.playlist li.playing .roww span {
    color: #fff;
 }
-.playlist li span.duration
-{
+.playlist li span.duration {
     font-size: 15px;
     font-weight: 400;
     display: inline-block;
     color: #dcdee1;
     text-align: right;
 }
-.playlist li.playing
-{
+.playlist li.playing {
    pointer-events: none;
    background: #1d3541;
    border: 0.5px solid #1d3541;
 }
 
-@media(max-width: 1092px){
-    section
-    {
+@media(max-width: 1092px) {
+    section {
         padding: 30px 10px;
     }
-    .containerr
-    {
+    .containerr {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
         overflow: hidden;
     }
-    .containerr #main-Video
-    {
-        height: 100%;
+    .video-container {
+        padding-top: 100%;
     }
-    .playlistBx
-    {
+    .playlistBx {
         height: 380px;
         margin-top: 10px;
     }
-    .playlist
-    {
+    .playlist {
         position: absolute;
         width: 100%;
         height: calc(100% - 40px);
