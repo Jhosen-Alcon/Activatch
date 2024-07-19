@@ -29,10 +29,16 @@ window.addEventListener("load", () => {
 // Función para cargar video
 function loadVideo(src, name) {
     let videoSrc;
-    if (src.includes("youtube")) {
-        videoSrc = src.replace("watch?v=", "embed/");
+    if (src.includes("youtube") || src.includes("youtu.be")) {
+        if (src.includes("shorts")) {
+            // Ajustar la URL de YouTube Shorts para incrustarla
+            videoSrc = src.replace("/shorts/", "/embed/");
+        } else {
+            videoSrc = src.replace("watch?v=", "embed/");
+        }
     } else if (src.includes("tiktok")) {
-        videoSrc = `https://www.tiktok.com/embed/v2/${src.split('/').pop()}`;
+        // Ajustar la URL de TikTok para incrustarla
+        videoSrc = src.replace("vm.tiktok.com", "www.tiktok.com/embed");
     } else {
         videoSrc = src;
     }

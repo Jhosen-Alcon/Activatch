@@ -1,16 +1,20 @@
 let allVideos = [
    {
-       name: "Video 1",
+       name: "Video largo youtube",
        src: "https://www.youtube.com/embed/WtTvWNESIBc",
        id: "vid_1"
    },
    {
-       name: "Video 2",
-       src: "https://vm.tiktok.com/embed/ZMraUQkQF/",
+       name: "Short Corto Youtube",
+       src: "https://www.youtube.com/shorts/HunJsUl-UW4",
        id: "vid_2"
    },
    // Añadir más videos según sea necesario
 ];
+
+
+
+
 
 //let allVideos = [
    //{
