@@ -4783,7 +4783,60 @@ img.mfp-img {
   margin:0 auto;
   font-weight:400;
   font-size:12px;
+  
 }
+@media (max-width: 576px) {
+  .countdown-s2 {
+    position: relative; /* Dejar relativo en móviles para que no interfiera */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto; /* Dejar que se ajuste a su contenido */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;
+    z-index: 9999; /* Asegurarse de que se vea por encima de otros elementos */
+    padding: 5px 0; /* Añadir algo de espacio para que el contenido no se vea comprimido */
+    background-color: transparent; /* Fondo transparente */
+  }
+
+  .countdown-s2 .countdown-section {
+    display: inline-block;
+    padding: 1px 5px; /* Padding reducido para que las secciones sean compactas */
+    margin: 0 2px; /* Márgenes pequeños entre las secciones */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+    border-radius: 2px; /* Bordes redondeados */
+    color: white;
+    text-align: center;
+  }
+
+  .countdown-s2 .countdown-amount {
+    font-size: 10px; /* Reducir el tamaño de los números */
+    font-weight: bold;
+  }
+
+  .countdown-s2 .countdown-period {
+    font-size: 6px; /* Reducir el tamaño del texto de las unidades */
+  }
+
+  .countdown-row {
+    display: flex;
+    justify-content: center; /* Centrar el contenido en fila */
+    align-items: center;
+    flex-wrap: nowrap; /* Evitar que las secciones se dividan en varias filas */
+  }
+
+  .countdown-section:last-child {
+    margin-right: 0; /* Eliminar margen extra en la última sección */
+  }
+
+  .button-obtener {
+    margin-top: 10px; /* Añadir espacio entre el botón y el contador */
+  }
+}
+
+
+
 
 .text-dark .countdown-amount,
 .text-dark .countdown-period{
