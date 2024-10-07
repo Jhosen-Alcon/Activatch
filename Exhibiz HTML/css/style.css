@@ -6446,8 +6446,8 @@ transition:.5s;
 
  .di-small{
 	position:absolute;
-	width:50%;
-	height:50%;
+	width:48%;
+	height:45%;
 	top:75%;
 	left:-35%;
 	z-index:-1;
@@ -6457,8 +6457,8 @@ transition:.5s;
 
 .di-small-2{
 	position:absolute;
-	width:40%;
-	height:50%;
+	width:48%;
+	height:45%;
 	right:-10%;
 	bottom:-10%;
 	z-index:1;
